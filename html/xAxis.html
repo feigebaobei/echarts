@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>demo</title>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+  <!-- 引入 -->
+  <script src="../script/echarts.js"></script>
+</head>
+<body>
+  <h2>x轴</h2>
+  <div id="main" style="width: 600px; height: 400px;"></div>
+  <script>
+    // 
+    var main = echarts.init(document.getElementById('main'))
+    // 
+    var option = {
+      title: {
+        text: 'grid'
+      },
+      xAxis: {
+        gridIndex: 0,
+        position: 'top',
+        name: 'x轴0',
+        min: 0,
+        silent: false,
+      },
+      yAxis: {},
+      series: [
+        {
+          name: 'no0',
+          type: 'scatter',
+          data: [
+            [10.0, 8.04],
+            [8.0, 6.95],
+            [13.0, 7.58],
+            [9.0, 8.81],
+            [11.0, 8.33],
+            [14.0, 9.96],
+            [6.0, 7.24],
+            [4.0, 4.26],
+            [12.0, 10.84],
+            [7.0, 4.82],
+            [5.0, 5.68]
+          ],
+          markLine: {
+
+          }
+        }
+      ]
+    }
+    // 
+    main.setOption(option)
+  </script>
+  <ul>
+    <li>可设置全局 tooltip</li>
+    <li>可设置坐标系 grid.tooltip</li>
+    <li>可设置系列 series.tooltip</li>
+    <li>可设置系列中每个数据项 series.data.tooltip</li>
+  </ul> 
+</body>
+</html>

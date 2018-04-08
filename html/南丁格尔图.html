@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>南丁格尔图</title>
+  <!-- 引入 -->
+  <script src="../script/echarts.min.js"></script>
+</head>
+<body>
+  <!-- 定义html，用来展示数据。 -->
+  <div id="main" style="width: 600px; height: 400px;"></div>
+  <script>
+    // 初始化echarts实例
+    var sample = echarts.init(document.getElementById('main'))
+    // 定义配置项
+    var option = {
+      visualMap: {
+        show: true,
+        min: 80,
+        max: 600,
+        inRange: {
+          colorLightness: [0, 1]
+        }
+      },
+      backgroundColor: '#2c343c',
+      textStyle: {
+        color: 'rgba(255, 255, 255, 0.3)'
+      },
+      label: {
+        textStyle: {
+          color: 'rgba(255, 255, 5, 0.3)'
+        }
+      },
+      labelLine: {
+        lineStyle: {
+          color: 'rgba(255, 5, 255, 0.3)'
+        }
+      },
+      series: [
+        {
+          name: '访问来源',
+          type: 'pie',
+          radius: '55%',
+          roseType: 'angle',
+          data: [
+            { value: 235, name: '视频广告'},
+            { value: 274, name: '联盟广告'},
+            { value: 310, name: '邮件广告'},
+            { value: 335, name: '直接访问',
+              itemStyle: {
+                color: 'blue'
+              }
+            },
+            { value: 400, name: '搜索引擎',
+              itemStyle: {
+                color: '#c23531'
+              }
+            }
+          ],
+          itemStyle: {
+            normal: {
+              shadowBlur: 200,
+              shadowColor: 'rgba(0, 0, 0, 0.5)'
+            }
+          }
+        }
+      ]
+    }
+    // 使用配置项
+    sample.setOption(option)
+  </script>
+</body>
+</html>

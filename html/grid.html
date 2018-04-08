@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>demo</title>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+  <!-- 引入 -->
+  <script src="../script/echarts.js"></script>
+</head>
+<body>
+  <h2>直角坐标系</h2>
+  <div id="main" style="width: 600px; height: 400px;"></div>
+  <div id="main2" style="width: 600px; height: 400px;"></div>
+  <script>
+    // 
+    var main = echarts.init(document.getElementById('main'))
+    // 
+    var option = {
+      title: {
+        text: 'grid'
+      },
+      grid: [
+        // {left: ''}
+        {letf: '10%', top: '10%', width: '38%', height: '38%'},
+        {left: '58%', top: '10%', width: '38%', height: '38%'},
+        {left: '10%', top: '55%', width: '38%', height: '38%'},
+        {left: '58%', top: '55%', width: '38%', height: '38%'}
+      ],
+      xAxis: [
+        {gridIndex: 0, min: 0, max: 20,
+          inverse: true
+        },
+        {gridIndex: 1, min: 0, max: 20},
+        {gridIndex: 2, min: 0, max: 20},
+        {gridIndex: 3, min: 0, max: 20}
+      ],
+      yAxis: [
+        {gridIndex: 0, min: 0, max: 15},
+        {gridIndex: 1, min: 0, max: 15},
+        // {gridIndex: 1, min: 0, max: 5, inverse: true},
+        {gridIndex: 2, min: 0, max: 15},
+        {gridIndex: 3, min: 0, max: 15}
+      ],
+      series: [
+        {
+          name: 'no0',
+          type: 'scatter',
+          xAxisIndex: 0,
+          yAxisIndex: 0,
+          data: [
+            [10.0, 8.04],
+            [8.0, 6.95],
+            [13.0, 7.58],
+            [9.0, 8.81],
+            [11.0, 8.33],
+            [14.0, 9.96],
+            [6.0, 7.24],
+            [4.0, 4.26],
+            [12.0, 10.84],
+            [7.0, 4.82],
+            [5.0, 5.68]
+          ],
+          markLine: {
+            animation: false,
+            label: {
+              normal: {
+                formatter: 'y=0.5*x+3',
+                textStyle: {
+                  align: 'right'
+                }
+              }
+            },
+            lineStyle: {
+              normal: {
+                type: 'solid'
+              }
+            },
+            tooltip: {
+              formatter: 'y=0.5*x+3'
+            },
+            data: [
+              // [{coord: [0,3], symbol: 'none'},
+              // {coord: [20,13], symbol: 'none'}]
+                {yAxis: 8}
+            ]
+          }
+        },
+        {
+          name: 'no1',
+          type: 'scatter',
+          xAxisIndex: 1,
+          yAxisIndex: 1,
+          data: [
+            [10.0, 9.14],
+            [8.0, 8.14],
+            [13.0, 8.74],
+            [9.0, 8.77],
+            [11.0, 9.26],
+            [14.0, 8.10],
+            [6.0, 6.13],
+            [4.0, 3.10],
+            [12.0, 9.13],
+            [7.0, 7.26],
+            [5.0, 4.74]
+          ],
+          markLine: {
+            animation: false,
+            label: {
+              normal: {
+                formatter: 'y=0.5*x+3',
+                textStyle: {
+                  align: 'right'
+                }
+              }
+            },
+            lineStyle: {
+              normal: {
+                type: 'solid'
+              }
+            },
+            tooltip: {
+              formatter: 'y=0.5*x+3'
+            },
+            data: [
+              [{coord: [0,3], symbol: 'none'},
+              {coord: [20,13], symbol: 'none'}]
+            ]
+          }
+        },
+        {
+          name: 'no2',
+          type: 'scatter',
+          xAxisIndex: 2,
+          yAxisIndex: 2,
+          data: [
+            [10.0, 7.46],
+            [8.0, 6.77],
+            [13.0, 12.74],
+            [9.0, 7.11],
+            [11.0, 7.81],
+            [14.0, 8.84],
+            [6.0, 6.08],
+            [4.0, 5.39],
+            [12.0, 8.15],
+            [7.0, 6.42],
+            [5.0, 5.73]
+        ],
+          markLine: {
+            animation: false,
+            label: {
+              normal: {
+                formatter: 'y=0.5*x+3',
+                textStyle: {
+                  align: 'right'
+                }
+              }
+            },
+            lineStyle: {
+              normal: {
+                type: 'solid'
+              }
+            },
+            tooltip: {
+              formatter: 'y=0.5*x+3'
+            },
+            data: [
+              [{coord: [0,3], symbol: 'none'},
+              {coord: [20,13], symbol: 'none'}]
+            ]
+          }
+        },
+        {
+          name: 'no3',
+          type: 'scatter',
+          xAxisIndex: 3,
+          yAxisIndex: 3,
+          data: [
+            [8.0, 6.58],
+            [8.0, 5.76],
+            [8.0, 7.71],
+            [8.0, 8.84],
+            [8.0, 8.47],
+            [8.0, 7.04],
+            [8.0, 5.25],
+            [19.0, 12.50],
+            [8.0, 5.56],
+            [8.0, 7.91],
+            [8.0, 6.89]
+        ],
+          markLine: {
+            animation: false,
+            label: {
+              normal: {
+                formatter: 'y=0.5*x+3',
+                textStyle: {
+                  align: 'right'
+                }
+              }
+            },
+            lineStyle: {
+              normal: {
+                type: 'solid'
+              }
+            },
+            tooltip: {
+              formatter: 'y=0.5*x+3'
+            },
+            data: [
+              [{coord: [0,3], symbol: 'none'},
+              {coord: [20,13], symbol: 'none'}]
+            ]
+          }
+        },
+      ]
+    }
+    // 
+    main.setOption(option)
+    
+
+
+
+
+    // 
+    var main2 = echarts.init(document.getElementById('main2'))
+    // 
+    var optionMain2 = {
+      grid: {},
+      legend: {},
+      xAxis: [
+        {
+          // type: ''
+          data: ['2009/6/12 2:00', '2009/6/12 3:00', '2009/6/12 4:00', '2009/6/12 5:00', '2009/6/12 6:00', '2009/6/12 7:00', '2009/6/12 8:00', '2009/6/12 9:00', '2009/6/12 10:00', '2009/6/12 11:00', '2009/6/12 12:00', '2009/6/12 13:00', '2009/6/12 14:00', '2009/6/12 15:00', '2009/6/12 16:00', '2009/6/12 17:00', '2009/6/12 18:00', '2009/6/12 19:00', '2009/6/12 20:00', '2009/6/12 21:00', '2009/6/12 22:00', '2009/6/12 23:00'],
+          max: 30,
+          // symbol: 'arrow'
+          axisLine: {
+            symbol: ['none', 'arrow']
+          }
+        }
+      ],
+      yAxis: [
+        {
+          name: '流量',
+          max: 2,
+          axisLine: {
+            symbol: ['none', 'arrow']
+          }
+        },
+        {
+          name: '降雨量',
+          // inverse: true,
+          max: 1,
+          axisLine: {
+            symbol: ['none', 'arrow']
+          }
+        }
+      ],
+      series: [
+        {
+          name: '流量',
+          type: 'line',
+          animation: false,
+          data: [0.97,0.96,0.96,0.95,0.95,0.94,0.94,0.94,0.94]
+        },
+        {
+          name: '降雨量',
+          type: 'line',
+          yAxisIndex: 1,
+          data: [0.97,0.96,0.96,0.95,0.95,0.94,0.94,0.94,0.94].reverse(),
+          markLine: {
+              data: [
+                [{name: 'ponitlinkponit',
+                  coord: [30,0.65]
+                },
+                {
+                  coord: [0,0.65]
+                }]
+              ]
+            }
+        }
+      ]
+    }
+    // 
+    main2.setOption(optionMain2)
+  </script>
+  <ul>
+    <li>可设置全局 tooltip</li>
+    <li>可设置坐标系 grid.tooltip</li>
+    <li>可设置系列 series.tooltip</li>
+    <li>可设置系列中每个数据项 series.data.tooltip</li>
+  </ul> 
+</body>
+</html>

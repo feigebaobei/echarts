@@ -2,20 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>sample</title>
+  <title>demo</title>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
   <!-- 引入 -->
-  <script src="../script/echarts.min.js"></script>
+  <script src="../script/echarts.js"></script>
 </head>
 <body>
+  <h2>title</h2>
   <!-- 定义html，用来展示数据。 -->
   <div id="main" style="width: 600px; height: 400px;"></div>
   <script>
+    // 引入主题json文件
+
+    // 转换为对象。
+
+    // 注册主题
+    // echarts.registerTheme('custom', themeCustom)
+
     // 初始化echarts实例
     var sample = echarts.init(document.getElementById('main'))
-    // 设置配置项
+    // 定义配置项
     var option = {
       title: {
-        text: 'echarts 入门示例'
+        text: 'ajaxdata',
+        link: 'http://www.baidu.com',
+        padding: [60, 2]
       },
       tooltip: {},
       legend: {
@@ -23,19 +34,19 @@
       },
       xAxis: {
         data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
+        // data: []
       },
       yAxis: {},
       series: [
         {
           name: '销量',
-          type: 'bar',// 柱状图
+          type: 'bar',
           data: [5, 20, 36, 10, 10, 20]
         }
       ]
     }
     // 使用配置项
     sample.setOption(option)
-
   </script>
 </body>
 </html>

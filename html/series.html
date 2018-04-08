@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>demo</title>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+  <!-- 引入 -->
+  <script src="../script/echarts.js"></script>
+</head>
+<body>
+  <h2></h2>
+  <div id="main" style="width: 600px; height: 400px;"></div>
+  <div id="pie" style="width: 600px; height: 400px;"></div>
+  <div id="pie2" style="width: 600px; height: 400px;"></div>
+  <div id="bar" style="width: 600px; height: 400px;"></div>
+  <script>
+    // 
+    var main = echarts.init(document.getElementById('main'))
+    // 
+    var option = {
+      title: {text:'series'},
+      xAxis: {
+        data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
+      },
+      yAxis: {},
+      // polar: {},
+      series: [
+        {
+          name: '销量0',// 用于tooltip显示，legend筛选。
+          type: 'line',
+          data: [5, 15, 36, 10, 10, 20],
+          // coordinateSystem: 'polar',
+          symbol: 'rect',
+        },
+        {
+          name: '销量1',// 用于tooltip显示，legend筛选。
+          type: 'line',
+          data: [15, 25, 24, , 62, 17],
+          // coordinateSystem: 'polar',
+          // symbol: 'rect',
+          connectNulls: true, // 连接空数据
+          // step:true,
+          label: {},
+          smooth: true,
+          sampling: 'average'
+        },
+        {
+          name: '销量2',// 用于tooltip显示，legend筛选。
+          type: 'line',
+          data: [56, 2, 6, 6, 23, 24],
+          // coordinateSystem: 'polar',
+          symbol: 'rect',
+          step: 'middle',
+        }
+      ]
+    }
+    // 
+    main.setOption(option)
+
+    // pie
+    var pie = echarts.init(document.getElementById('pie'))
+    //
+    var optionPie = {
+      title: {
+        text: 'seriesPie'
+      },
+      series: [
+        {
+          name: '销量',
+          type: 'pie',// 饼图
+          data: [5, 20, 36, 10, 10, 20],
+          selectedMode: true,
+          clockwise: false,
+          // roseType: true, // 是否显示南格尔图
+          label: {
+            show: true,
+            // formatter: function () {
+            //   return {a}
+            // }
+            formatter: '{a}: {c}, {d}%'
+          },
+          radius: ['30%', '60%'],
+          markLine: {
+            label: {
+              show: true,
+              formatter: '{a}'
+            },
+            data: [
+              // {
+              //   // radius: '25%'
+              // }
+            ]
+          }
+        }
+      ]
+    }
+    // 
+    pie.setOption(optionPie)
+
+    // pie2
+    var pie2 = echarts.init(document.getElementById('pie2'))
+    //
+    var optionPie = {
+      title: {
+        text: 'seriesPie'
+      },
+      series: [
+        {
+          name: '销量',
+          type: 'pie',// 饼图
+          data: [5, 20, 36, 10, 10, 20],
+          selectedMode: true,
+          clockwise: false,
+          roseType: true
+        }
+      ]
+    }
+    // 
+    pie2.setOption(optionPie)
+
+    // bar
+    var bar = echarts.init(document.getElementById('bar'))
+    //
+    var optionbar = {
+      title: {
+        text: 'seriesbar'
+      },
+      xAxis: {
+        data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
+      },
+      yAxis: {
+        // data: ['a', 'b', 'v', 'd', 'e', 160]
+        // data: [15, 30, 45]
+      },
+      series: [
+        {
+          name: '销量0',
+          type: 'bar',// 饼图
+          data: [5, 20, 36, 10, 10, 20],
+          barMaxWidth: 10,
+          markLine: {
+            data: [{name: 'aa', yAxis: 25}]
+          }
+        },
+        {
+          name: '销量1',
+          type: 'bar',// 饼图
+          data: [21, 23, 56, 16, 26, 17],
+          barMaxWidth: 10,
+          barGap: '-80%'
+        }
+      ]
+    }
+    // 
+    bar.setOption(optionbar)
+  </script>
+</body>
+</html>

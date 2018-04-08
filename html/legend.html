@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>demo</title>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+  <!-- 引入 -->
+  <script src="../script/echarts.js"></script>
+</head>
+<body>
+  <h2>legend图例</h2>
+  <!-- 定义html，用来展示数据。 -->
+  <div id="main" style="width: 600px; height: 400px;"></div>
+  <script>
+    // 引入主题json文件
+
+    // 转换为对象。
+
+    // 注册主题
+    // echarts.registerTheme('custom', themeCustom)
+
+    // 初始化echarts实例
+    var sample = echarts.init(document.getElementById('main'))
+    // 定义配置项
+    var option = {
+      title: {
+        text: 'ajaxdata'
+      },
+      tooltip: {},
+      legend: {
+        data: [{name:'销量',// data[i].name对应series[i].name
+          icon: 'circle',
+          textStyle: {
+            color: 'red'
+          }
+        }, '销量1', '销量2', '销量3', '销量4', '销量5', '销量6', '销量7', '销量8'],
+        type: 'scroll',
+        left: 100,
+        right: 50,
+        width: 300,
+        orient: 'vertical',
+        itemGap: 20,
+        itemHeight: 5,
+        backgroundColor: 'rgba(128,128,128,0.4)'
+      },
+      xAxis: {
+        data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
+        // data: []
+      },
+      yAxis: {},
+      series: [
+        {
+          name: '销量',
+          type: 'bar',
+          data: [5, 20, 36, 10, 10, 20]
+        },
+        {
+          name: '销量1',
+          type: 'bar',
+          data: [5, 20, 36, 10, 10, 20]
+        },
+        {
+          name: '销量2',
+          type: 'bar',
+          data: [5, 20, 36, 10, 10, 20]
+        },
+        {
+          name: '销量3',
+          type: 'bar',
+          data: [5, 20, 36, 10, 10, 20]
+        },
+        {
+          name: '销量4',
+          type: 'bar',
+          data: [5, 20, 36, 10, 10, 20]
+        },
+        {
+          name: '销量5',
+          type: 'bar',
+          data: [5, 20, 36, 10, 10, 20]
+        },
+        {
+          name: '销量6',
+          type: 'bar',
+          data: [5, 20, 36, 10, 10, 20]
+        },
+        {
+          name: '销量7',
+          type: 'bar',
+          data: [5, 20, 36, 10, 10, 20]
+        },
+        {
+          name: '销量8',
+          type: 'bar',
+          data: [5, 20, 36, 10, 10, 20]
+        }
+      ]
+    }
+    // 使用配置项
+    sample.setOption(option)
+  </script>
+</body>
+</html>

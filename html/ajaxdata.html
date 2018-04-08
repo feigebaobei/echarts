@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>demo</title>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+  <!-- 引入 -->
+  <script src="../script/echarts.js"></script>
+</head>
+<body>
+  <!-- 定义html，用来展示数据。 -->
+  <div id="main" style="width: 600px; height: 400px;"></div>
+  <script>
+    // 引入主题json文件
+
+    // 转换为对象。
+
+    // 注册主题
+    // echarts.registerTheme('custom', themeCustom)
+
+    // 初始化echarts实例
+    var sample = echarts.init(document.getElementById('main'))
+    // 定义配置项
+    var option = {
+      title: {
+        text: 'ajaxdata'
+      },
+      tooltip: {},
+      legend: {
+        data: ['销量']
+      },
+      xAxis: {
+        // data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
+        data: []
+      },
+      yAxis: {},
+      series: [
+        {
+          name: '销量',
+          type: 'bar',
+          data: []
+        }
+      ]
+    }
+    sample.showLoading()
+    // 使用配置项
+    sample.setOption(option)
+    // 模拟ajax事件
+    function similarAjax () {
+      sample.hideLoading()
+      sample.setOption({
+        xAxis: {
+          data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
+        },
+        series: [
+          // 根据name找到相应的系列，所以name值必须一一对应。
+          {
+            name: '销量',
+            data: [5, 20, 36, 10, 10, 20]
+          }
+        ]
+      })
+    }
+    setTimeout(similarAjax, 2000)
+  </script>
+</body>
+</html>
