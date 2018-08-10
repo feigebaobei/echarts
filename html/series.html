@@ -24,6 +24,25 @@
       },
       yAxis: {},
       // polar: {},
+      legend: {
+        data: ['销量0', '销量1', '销量2'],
+        selected: {
+          '销量0': false
+        }
+      },
+      tooltip: {
+        // formatter: '{a},{b},{c}',
+        // axisPointer: {
+        //   type: 'cross'
+        // },
+        formatter: function (a,b, c) {
+          console.log(a)
+          // console.log(b)
+          // console.log(c)
+          // return data
+          return a.marker + '每5s请求量：' + a.data
+        }
+      },
       series: [
         {
           name: '销量0',// 用于tooltip显示，legend筛选。
@@ -56,6 +75,10 @@
     }
     // 
     main.setOption(option)
+    main.on('legendselectchanged', function (a) {
+      console.log('legendselectchanged')
+      console.log(a)
+    })
 
     // pie
     var pie = echarts.init(document.getElementById('pie'))
